@@ -7,14 +7,14 @@
     height: 100px;
     @include clearfix();
     h3 {
-      color: #fff;
+      color: $whitefontColor;
       font-size: 16px;
       font-weight: bold;
       margin-bottom: 5px;
       display: inline-block;
     }
     .fa {
-      color: #fff;
+      color: $whitefontColor;
     }
     &__menu {
       float: right;
@@ -33,12 +33,12 @@
       }
       &__name {
         font-size: 15px;
-        color: #fff;
+        color: $whitefontColor;
         margin-bottom: 5px;
       }
       &__last-message {
         font-size: 11px;
-        color: #fff;
+        color: $whitefontColor;
       }
     }
   }

@@ -4,8 +4,8 @@
 }
 
 .notification {
-  background: $link-color;
-  color: #fff;
+  background: $blueColor;
+  color: $whitefontColor;
   width: 100vw;
   text-align: center;
 }
@@ -23,27 +23,27 @@
     &__title {
       float: left;
       font-size: 20px;
-      color: #333;
+      color: $blackfontColor;
       font-weight: bold;
       width: 90%;
       padding: 35px 0 15px;
     }
     &__edit {
       float: right;
-      border: 1px solid $link-color;
+      border: 1px solid $blueColor;
       margin-top: 28px;
       padding: 0 20px;
       line-height: 40px;
       width: 10%;
       text-align: center;
       &-link {
-        color: $link-color;
+        color: $blueColor;
         text-decoration: none;
       }
     }
     &__members {
       font-size: 12px;
-      color: #999;
+      color: $datefontColor;
       margin-bottom: 15px;
     }
   }
@@ -58,7 +58,7 @@
       &__member {
         font-size: 16px;
         font-weight: bold;
-        color: $message-text-color;
+        color: $userfontColor;
       }
       &__date {
         font-size: 12px;
@@ -66,7 +66,7 @@
       }
       &__text {
         font-size: 14px;
-        color: $message-text-color;
+        color: $datefontColor;
       }
     }
   }
@@ -85,9 +85,9 @@
     }
     &__image {
       float: left;
-      background: #fff;
+      background: $whitefontColor;
       text-decoration: none;
-      color: $message-text-color;
+      color: $blackfontColor;
       height: 50px;
       padding-right: 10px;
       font-size: 20px;
@@ -96,8 +96,8 @@
       }
     }
     &__submit {
-      background: $link-color;
-      color: #fff;
+      background: $blueColor;
+      color: $whitefontColor;
       height: 50px;
       margin-left: 15px;
       font-size: 16px;
