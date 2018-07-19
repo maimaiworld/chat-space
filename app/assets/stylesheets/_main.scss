@@ -1,0 +1,110 @@
+.wrapper {
+  width: 100vw;
+  @include clearfix();
+}
+
+.notification {
+  background: $link-color;
+  color: #fff;
+  width: 100vw;
+  text-align: center;
+}
+
+.main {
+  width: calc(100vw - 300px);
+  float: right;
+  .header {
+    padding-right: 40px;
+    padding-left: 40px;
+    border-bottom: 1px solid #eee;
+    &__upper {
+      @include clearfix();
+    }
+    &__title {
+      float: left;
+      font-size: 20px;
+      color: #333;
+      font-weight: bold;
+      width: 90%;
+      padding: 35px 0 15px;
+    }
+    &__edit {
+      float: right;
+      border: 1px solid $link-color;
+      margin-top: 28px;
+      padding: 0 20px;
+      line-height: 40px;
+      width: 10%;
+      text-align: center;
+      &-link {
+        color: $link-color;
+        text-decoration: none;
+      }
+    }
+    &__members {
+      font-size: 12px;
+      color: #999;
+      margin-bottom: 15px;
+    }
+  }
+  .messages {
+    padding-right: 40px;
+    padding-left: 40px;
+    height: calc(100vh - 115px - 90px);
+    background: #fafafa;
+    .message {
+      padding: 46px 0 0;
+      margin-bottom: 40px;
+      &__member {
+        font-size: 16px;
+        font-weight: bold;
+        color: $message-text-color;
+      }
+      &__date {
+        font-size: 12px;
+        color: #999;
+      }
+      &__text {
+        font-size: 14px;
+        color: $message-text-color;
+      }
+    }
+  }
+  .form {
+    width: 100%;
+    padding: 20px 40px;
+    background: #ddd;
+    @include clearfix();
+    &__input {
+      float: left;
+      height: 50px;
+      border: none;
+      padding: 10px;
+      margin: 0;
+      width: calc(100% - 150px);
+    }
+    &__image {
+      float: left;
+      background: #fff;
+      text-decoration: none;
+      color: $message-text-color;
+      height: 50px;
+      padding-right: 10px;
+      font-size: 20px;
+      .fa {
+        line-height: 50px;
+      }
+    }
+    &__submit {
+      background: $link-color;
+      color: #fff;
+      height: 50px;
+      margin-left: 15px;
+      font-size: 16px;
+      padding: 0 30px;
+    }
+    #upload-icon {
+      display: none;
+    }
+  }
+}

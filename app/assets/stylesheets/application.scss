@@ -1,1 +1,11 @@
 @import "./reset";
+@import "./clearfix";
+@import "./variable";
+@import "./sidebar";
+@import "./main";
+@import "font-awesome";
+
+
+body {
+  max-height: 100vh;
+}
