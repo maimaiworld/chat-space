@@ -1,45 +1,58 @@
-.side-bar {
+.sidebar {
   float: left;
+  background-color: $sidebarBackgroundColor;
   width: 300px;
-  background: #253141;
-  .header {
-    padding: 40px 20px 20px;
+  height: calc(100vh - 30px);
+  overflow: scroll;
+  &__user {
     height: 100px;
-    @include clearfix();
-    h3 {
-      color: $whitefontColor;
-      font-size: 16px;
-      font-weight: bold;
-      margin-bottom: 5px;
-      display: inline-block;
-    }
-    .fa {
-      color: $whitefontColor;
-    }
-    &__menu {
-      float: right;
-      li {
+    width: 100%;
+    background-color: $sidebarUserBackgroundColor;
+    position: relative;
+    &-content {
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      margin: auto 0;
+      top: 0;
+      bottom: 0;
+      position: absolute;
+      .sidebar__user-name {
+        color: $sidebarTextColor;
+        width: 60%;
+        font-weight: bold;
+        font-size: 16px;
+        margin: 0 20px;
+        position: relative;
         display: inline-block;
+      }
+      .sidebar__new {
+        display: inline-block;
+        font-size: 16px;
+        position: relative;
+        .fa {
+          font-size: 16px;
+          color: $sidebarTextColor;
+        }
+      }
+      .sidebar__edit {
+        display: inline-block;
+        font-size: 16px;
+        color: $sidebarTextColor;
+        position: relative;
       }
     }
   }
-  .groups {
-    padding: 0 20px;
-    height: calc(100vh - 100px);
-    .group {
-      margin-bottom: 40px;
-      &__link {
-        text-decoration: none;
-      }
-      &__name {
-        font-size: 15px;
-        color: $whitefontColor;
-        margin-bottom: 5px;
-      }
-      &__last-message {
-        font-size: 11px;
-        color: $whitefontColor;
-      }
+  &__groups {
+    height: 56px;
+    color: $sidebarTextColor;
+    padding: 20px;
+    &__name {
+      font-size: 15px;
+    }
+    &__latest-message {
+      font-size: 11px;
+      margin-top: 5px;
     }
   }
 }

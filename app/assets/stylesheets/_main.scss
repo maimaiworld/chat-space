@@ -1,110 +1,119 @@
-.wrapper {
-  width: 100vw;
-  @include clearfix();
-}
-
 .notification {
-  background: $blueColor;
-  color: $whitefontColor;
-  width: 100vw;
-  text-align: center;
+  background-color: $mainBlueColor;
+  width: 100%;
+  height: 30px;
+  .notice {
+    color: white;
+    text-align: center;
+  }
 }
 
-.main {
-  width: calc(100vw - 300px);
-  float: right;
-  .header {
-    padding-right: 40px;
-    padding-left: 40px;
-    border-bottom: 1px solid #eee;
-    &__upper {
+.chat {
+  width: calc(100% - 300px);
+  float: left;
+  &__header {
+    height: 100px;
+    border-bottom: 1px solid $chatcontentsheaderBorderColor;
+    &__group {
       @include clearfix();
-    }
-    &__title {
-      float: left;
-      font-size: 20px;
-      color: $blackfontColor;
-      font-weight: bold;
-      width: 90%;
-      padding: 35px 0 15px;
-    }
-    &__edit {
-      float: right;
-      border: 1px solid $blueColor;
-      margin-top: 28px;
-      padding: 0 20px;
-      line-height: 40px;
-      width: 10%;
-      text-align: center;
-      &-link {
-        color: $blueColor;
-        text-decoration: none;
+      padding-left: 40px;
+      padding-right: 40px;
+      &-name {
+        float: left;
+        margin-top: 35px;
+        font-size: 20px;
+        color: $chatcontentsGroupColor;
+
+      }
+      &-edit-btn {
+        float: right;
+        height: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+        line-height: 40px;
+        margin-top: 28px;
+        border: 1px solid $mainBlueColor;
+        cursor:pointer;
       }
     }
-    &__members {
-      font-size: 12px;
-      color: $datefontColor;
-      margin-bottom: 15px;
+    &__group-member {
+    color: $chatcontentsgrayColor;
+    font-size: 12px;
+    padding-left: 40px;
     }
   }
-  .messages {
-    padding-right: 40px;
-    padding-left: 40px;
-    height: calc(100vh - 115px - 90px);
-    background: #fafafa;
-    .message {
-      padding: 46px 0 0;
-      margin-bottom: 40px;
-      &__member {
-        font-size: 16px;
-        font-weight: bold;
-        color: $userfontColor;
-      }
-      &__date {
-        font-size: 12px;
-        color: #999;
+
+  &__body {
+    height: calc(100vh - 220px);
+    overflow: scroll;
+    .chat__message {
+      padding-top: 46px;
+      padding-left: 40px;
+      &-info {
+        @include clearfix();
+
+        &__sender-name {
+          font-size: 16px;
+          color: $messageTextColor;
+          font-weight: bold;
+          float: left;
+          line-height: 16px;
+        }
+        &__send-time {
+          font-size: 12px;
+          color: $chatcontentsgrayColor;
+          float: left;
+          line-height: 12px;
+          margin-left: 10px;
+        }
       }
       &__text {
         font-size: 14px;
-        color: $datefontColor;
+        color: $messageTextColor;
+        margin-top: 10px;
       }
     }
+
   }
-  .form {
+  &__footer {
+    background-color: $chatcontentsfooterColor;
+    height: 90px;
     width: 100%;
-    padding: 20px 40px;
-    background: #ddd;
-    @include clearfix();
-    &__input {
-      float: left;
-      height: 50px;
-      border: none;
-      padding: 10px;
-      margin: 0;
-      width: calc(100% - 150px);
-    }
-    &__image {
-      float: left;
-      background: $whitefontColor;
-      text-decoration: none;
-      color: $blackfontColor;
-      height: 50px;
-      padding-right: 10px;
-      font-size: 20px;
-      .fa {
-        line-height: 50px;
+    &__form {
+      margin: 0 40px;
+      padding-left: 10px;
+      position: relative;
+      &__body{
+        color: $messageTextColor;
+        font-size: 16px;
+        width: calc(100% - 80px);
+        position: relative;
+        padding: 20px 0;
+        .new-message {
+          height: 50px;
+          width: calc(100% - 15px);
+        }
+        .fa {
+          margin-right: 25px;
+          margin-top: 20px;
+          line-height: 50px;
+          position: absolute;
+            top: 0;
+            right: 0;
+        }
       }
-    }
-    &__submit {
-      background: $blueColor;
-      color: $whitefontColor;
-      height: 50px;
-      margin-left: 15px;
-      font-size: 16px;
-      padding: 0 30px;
-    }
-    #upload-icon {
-      display: none;
+      .new-message-send-btn {
+        margin: 20px 0;
+        background-color: $mainBlueColor;
+        color: $messageSendBtnColor;
+        width: 80px;
+        height: 50px;
+        border: none;
+        position: absolute;
+          top: 0;
+          right: 0;
+          text-align: center;
+      }
     }
   }
 }
