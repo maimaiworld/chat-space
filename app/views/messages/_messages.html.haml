@@ -1,5 +1,11 @@
-.chat__message
-  .chat__message-info
-    .chat__message-info__sender-name まいまい
-    .chat__message-info__send-time 2018/7/19 12:12:12
-  .chat__message__text あちい
+.message
+  .upper-message
+    .upper-message__user-name
+      = message.user.name
+    .upper-message__date
+      = format_posted_time(message.created_at)
+  .lower-meesage
+    - if message.content.present?
+      %p.lower-message__content
+        = message.content
+    = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
