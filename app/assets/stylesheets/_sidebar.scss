@@ -1,58 +1,46 @@
-.sidebar {
-  float: left;
-  background-color: $sidebarBackgroundColor;
+.side-bar {
+  box-sizing: border-box;
+  color: $white;
   width: 300px;
-  height: calc(100vh - 30px);
-  overflow: scroll;
-  &__user {
+  .header {
+    background-color: $side_blue_dark;
     height: 100px;
-    width: 100%;
-    background-color: $sidebarUserBackgroundColor;
-    position: relative;
-    &-content {
-      width: 100%;
-      height: 40px;
-      line-height: 40px;
-      margin: auto 0;
-      top: 0;
-      bottom: 0;
-      position: absolute;
-      .sidebar__user-name {
-        color: $sidebarTextColor;
-        width: 60%;
-        font-weight: bold;
-        font-size: 16px;
-        margin: 0 20px;
-        position: relative;
+    line-height: 100px;
+    padding: 0 20px;
+    &__name {
+      display: inline-block;
+      font-size: $side_header_font;
+      font-weight: bold;
+    }
+    &__lists {
+      display: inline-block;
+      float: right;
+      .list {
         display: inline-block;
       }
-      .sidebar__new {
-        display: inline-block;
-        font-size: 16px;
-        position: relative;
-        .fa {
-          font-size: 16px;
-          color: $sidebarTextColor;
-        }
-      }
-      .sidebar__edit {
-        display: inline-block;
-        font-size: 16px;
-        color: $sidebarTextColor;
-        position: relative;
+      .icon {
+        color: $white;
+        font-size: $side_header_font;
       }
     }
   }
-  &__groups {
-    height: 56px;
-    color: $sidebarTextColor;
-    padding: 20px;
-    &__name {
-      font-size: 15px;
-    }
-    &__latest-message {
-      font-size: 11px;
-      margin-top: 5px;
+
+  .groups {
+    background-color: $side_blue_light;
+    height: calc(100vh - 100px);
+    padding: 0 20px;
+    .group {
+      box-sizing: border-box;
+      padding: 20px 0 40px;
+      &__name {
+        color: $white;
+        font-size: $side_group_name;
+      }
+      &__message {
+        color: $white;
+        font-size: $side_group_message;
+        margin-top: 5px;
+      }
     }
   }
 }
