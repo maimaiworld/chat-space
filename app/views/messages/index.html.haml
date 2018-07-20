@@ -1,5 +1,5 @@
-.notification
-  .notice チャットグループが作成されました
+.messages
+= render @messages
 
 .sidebar
   .sidebar__user
@@ -24,10 +24,11 @@
   .chat__body
     = render partial: "messages"
 
-  .chat__footer
-    %form{class: "chat__footer__form", action: "/", method: :post}
-      .chat__footer__form__body
-        %input{placeholder: "type a message", class: "new-message", type: "text" }
-          %label.upload-label{for: "upload-icon" }
-            = fa_icon("image")
-      %input{type: "submit", value: "SEND", class: "new-message-send-btn" }
+  .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
