@@ -4,7 +4,11 @@
 @import "./notification";
 @import "./sidebar";
 @import "./main";
+@import "./user";
 @import "font-awesome";
+@import "config/colors";
+@import "modules/flash";
+@import "modules/group";
 
 
 body {
