@@ -1,10 +1,12 @@
-$mainBlueColor: #38AEF0;
-$messageTextColor: #434A54;
-$sidebarTextColor: #FFFFFF;
-$sidebarBackgroundColor: #2f3e51;
-$sidebarUserBackgroundColor: #253141;
-$chatcontentsheaderBorderColor: #eeeeee;
-$chatcontentsgrayColor: #999999;
-$chatcontentsfooterColor: #AAAAAA;
-$messageSendBtnColor: #FFFFFF;
-$chatcontentsGroupColor: #333333;
+/* font color */
+$white: #FFFFFF;
+$black: #434A54;
+$light_gray: #999999;
+$light_blue: #38AEF0;
+$side_blue_dark: #253141;
+$side_blue_light: #2F3E51;
+
+/* font size */
+$side_header_font: 16px;
+$side_group_name: 15px;
+$side_group_message: 11px;
