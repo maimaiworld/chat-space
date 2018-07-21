@@ -1,16 +1,16 @@
 @import "./reset";
-@import "./variable";
-@import "./clearfix";
+@import "config/variable";
+@import "./index";
 @import "./notification";
-@import "./sidebar";
+@import "./side";
+@import "./side_user";
+@import "./side_groups";
 @import "./main";
+@import "./main_header";
+@import "./main_messages";
+@import "./main_form";
 @import "./user";
-@import "font-awesome";
 @import "config/colors";
 @import "modules/flash";
 @import "modules/group";
-
-
-body {
-  max-height: 100vh;
-}
+@import "font-awesome";

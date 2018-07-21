@@ -1,0 +1,20 @@
+.user{
+  background-color: $gray-darkest;
+  height: calc(28px + 40px + 28px);
+  padding: 0 20px;
+  &__name{
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    color: $white;
+    line-height: 96px;
+  }
+  &__icons{
+    float: right;
+    line-height: 96px;
+    text-align: right;
+    a{
+      color: $white;
+    }
+  }
+}

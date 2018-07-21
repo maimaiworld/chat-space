@@ -1,0 +1,29 @@
+.header{
+  height: calc(28px + 40px + 28px);
+  padding-right: 40px;
+  &__left{
+    float: left;
+    padding: 35px 0 0 40px;
+    .group-name{
+      font-size: 20px;
+      color: $black-dark;
+      margin-bottom: 15px;
+    }
+    .group-members{
+      font-size: 12px;
+      color: $gray;
+    }
+  }
+  &__right{
+    float: right;
+    border: 1px solid $blue;
+    color: $blue;
+    line-height: 40px;
+    padding: 0 20px;
+    margin-top: 28px;
+    a {
+      color: $blue;
+      text-decoration: none;
+    }
+  }
+}

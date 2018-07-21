@@ -1,0 +1,27 @@
+.messages{
+  background-color: $gray-lightest;
+  height: calc(100vh - 100px - 46px - 70px);
+  padding: 46px 40px 0;
+  overflow: auto;
+  clear:both;
+  float: left;
+  width: calc(100vw - 300px - 85px);
+  .message{
+    color: $black-light;
+    &__name{
+      float: left;
+      font-size: 16px;
+      font-weight: bold;
+      padding-right: 10px;
+    }
+    &__date{
+      color: $gray;
+      font-size: 12px;
+      }
+    &__content{
+      font-size: 14px;
+      clear: both;
+      padding-bottom: 40px;
+    }
+  }
+}

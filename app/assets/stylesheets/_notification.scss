@@ -1,9 +1,5 @@
 .notification {
-  background-color: $mainBlueColor;
-  width: 100%;
-  height: 30px;
-  .notice {
-    color: white;
-    text-align: center;
-  }
+  background-color: $blue;
+  color: $white;
+  text-align: center;
 }
