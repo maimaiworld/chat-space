@@ -1,0 +1,8 @@
+.groups
+ - @groups.each do |group|
+  = link_to group_messages_path(group) do
+   .group
+    .group__name
+     = group.name
+    .group__text
+     = group.show_last_message

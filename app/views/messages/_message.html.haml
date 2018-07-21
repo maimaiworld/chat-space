@@ -1,0 +1,10 @@
+.message{'data-message-id': message.id }
+ .message__name
+  = message.user.name
+ .message__date
+  = message.created_at
+ .message__content
+  .upper_message
+   = message.body
+  .lower_message
+   = image_tag(message.image)
