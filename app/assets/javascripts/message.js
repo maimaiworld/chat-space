@@ -47,7 +47,6 @@ $(function(){
     })
     .fail(function(){
       alert('メッセージが送られていません。');
-      $('.form__button').prop('disabled', false);
     })
   });
 });
