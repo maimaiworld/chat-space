@@ -10,7 +10,7 @@ $(function(){
                   ${ message.name }
                 </div>
                 <div class="message__date">
-                  ${ message.created_at.strftime('%Y-%m-%d %H:%M:%S') }
+                  ${ message.created_at }
                 </div>
                 <div class="message__content">
                   <div class="upper_message">
