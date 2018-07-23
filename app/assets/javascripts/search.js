@@ -1,83 +1,72 @@
 $(function() {
-  var search_list = $("#user-search-result");
-  const chat_user =  $('#chat-group-users');
 
-  function appendUser(user) {
-    var html = `
-      <div class="chat-group-user clearfix">
-        <p class="chat-group-user__name">${ user.name }</p>
+  function appendUser(user){
+    var html =
+      `<div class="chat-group-user clearfix">
+        <p class="chat-group-user__name">${user.name}</p>
         <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</a>
-      </div>`;
-    search_list.append(html);
-   }
+      </div>`
 
-  function addChatUser(add_user) {
-    var html = `
-      <div class='chat-group-user clearfix js-chat-member' id='${add_user.userId}'>
-        <input name='group[user_ids][]' type='hidden' value='${add_user.userId}'>
-        <p class='chat-group-user__name'>${ add_user.userName }</p>
-        <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' data-user-id="${add_user.userId}" data-user-name="${add_user.userName}">削除</a>
-      </div>`;
+    $("#user-search-result").append(html);
+  }
+
+  function appendNoUser(user){
+    var html =
+      `<div class='chat-group-user clearfix'>${user}</div>`
+
+      $("#user-search-result").append(html);
+  }
+
+  function addChatUser(id, name){
+    var html =
+      `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${id}'>
+        <input name='group[user_ids][]' type='hidden' value='${id}'>
+        <p class='chat-group-user__name'>${name}</p>
+        <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' data-user-id="${id}" data-user-name="${name}">削除</a>
+      </div>`
+
     $("#chat-group-users").append(html);
-   }
+  }
 
-  function removeUser(user) {
-    var html = `
-      <div class="chat-group-user clearfix">
-        <p class="chat-group-user__name">${ user.userName }</p>
-        <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.userId}" data-user-name="${user.userName}">追加</a>
-      </div>`;
-    search_list.append(html);
-   }
-
-  $("#user-search-field").on("keyup", function(){
-    var users_id = [];
-    chat_user.find('.chat-group-user').each( function( index, element ) {
-    users_id.push(element.id);
-    });
+  $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();
-    $.ajax({
+    if (input == "") {
+     $("#user-search-result").empty();
+    }else{
+      $.ajax({
       type: 'GET',
       url: '/users',
-      data: { name: input, users_id: users_id },
+      data: { keyword: input },
       dataType: 'json'
-    })
-    .done(function(users){
+      })
+      .done(function(users) {
       $("#user-search-result").empty();
-      if (users.length !== 0){
-        users.forEach(function(user){
-          appendUser(user);
-        });
-      }
-      else {
-        $("#user-search-result").append(`<div class="chat-group-user clearfix">
-そのユーザーはいません</div>`);
-      }
-    })
-    .fail(function() {
-      alert('ユーザー検索に失敗しました');
-    })
-    return false;
-  });
-
-  $("#user-search-result").on("click",
-".chat-group-user__btn--add" ,function(){
-    event.stopPropagation();
-    var add_user = $(this).data();
-    var count = $(".chat-group-user__btn--remove").data();
-    if (add_user.userId !== count.userId){
-      addChatUser(add_user);
-      $(this).parent().remove();
-    }else{
-      alert(add_user.userName + " は登録済みのユーザーです");
+        if (users.length !== 0) {
+           users.forEach(function(user){
+             appendUser(user);
+          });
+        }
+        else {
+          appendNoUser("一致するユーザーがいません");
+        }
+      })
+      .fail(function() {
+        alert('ユーザーの検索に失敗しました');
+      });
     }
-  });
+      return false;
+    });
 
-  $("#chat-group-users").on("click", ".js-remove-btn", function(){
-    event.stopPropagation();
-    var remove_user = $(this).data();
-    removeUser(remove_user);
+  $("#user-search-result").on("click",".chat-group-user__btn--add",function(e){
+    e.preventDefault();
+    var id = $(this).data("user-id");
+    var name = $(this).data("user-name");
+    addChatUser(id, name);
     $(this).parent().remove();
   });
-  return false;
+
+  $("#chat-group-users").on("click",".js-remove-btn",function(e){
+    e.preventDefault();
+    $(this).parent().remove();
+  });
 });
