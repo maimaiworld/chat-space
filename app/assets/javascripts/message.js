@@ -1,4 +1,4 @@
-$(function(){
+$(document).on("turbolinks:load", function(){
 
   var message_list = $(".messages");
 
@@ -21,6 +21,8 @@ $(function(){
                   </div>
                 </div>
               </div>`
+    message_list.append(html);
+    pageScrollDown($('.messages'));
   }
 
   function pageScrollDown(target){
@@ -64,11 +66,11 @@ $(function(){
       })
       .done(function(messages){
         messages.forEach(function(message){
-          appendMessage(message);
+            appendMessage(message);
         })
       })
       .fail(function(){
-        alert('送信失敗');
+      alert('送信失敗');
       })
     }
   },5000);
