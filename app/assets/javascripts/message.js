@@ -10,7 +10,7 @@ $(function(){
                   ${ message.name }
                 </div>
                 <div class="message__date">
-                  ${ message.created_at }
+                  ${ message.created_at.strftime('%Y-%m-%d %H:%M:%S') }
                 </div>
                 <div class="message__content">
                   <div class="upper_message">
@@ -21,8 +21,6 @@ $(function(){
                   </div>
                 </div>
               </div>`
-    message_list.append(html);
-    pageScrollDown($('.messages'));
   }
 
   function pageScrollDown(target){
