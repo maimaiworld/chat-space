@@ -64,11 +64,11 @@ $(function(){
       })
       .done(function(messages){
         messages.forEach(function(message){
-            appendMessage(message);
+          appendMessage(message);
         })
       })
       .fail(function(){
-      alert('送信失敗');
+        alert('送信失敗');
       })
     }
   },5000);
