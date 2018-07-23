@@ -1,9 +1,11 @@
 $(function(){
 
+  var message_list = $(".messages");
+
   function appendMessage(message){
     var img = message.image ? `<img src=${ message.image }>` : "";
 
-    var html = `<div class="message" data-message-id="${ message.id }">
+    var html =`<div class="message" data-message-id="${ message.id }">
                 <div class="message__name">
                   ${ message.name }
                 </div>
@@ -19,7 +21,8 @@ $(function(){
                   </div>
                 </div>
               </div>`
-    return html;
+    message_list.append(html);
+    pageScrollDown($('.messages'));
   }
 
   function pageScrollDown(target){
@@ -46,7 +49,30 @@ $(function(){
       $('.form__button').prop('disabled', false);
     })
     .fail(function(){
-      alert('メッセージが送られていません。');
+      alert('送信失敗');
+      $('.form__button').prop('disabled', false);
     })
   });
+
+  setInterval(function(){
+
+    if (location.pathname.match(/\/groups\/\d+\/messages/)) {
+      var lastMessageId = $('.messages').find('.message').last().data('message-id')
+      $.ajax({
+        url: location.pathname,
+        type: "GET",
+        data: {"lastMessageId": lastMessageId},
+        dataType: 'json',
+      })
+      .done(function(messages){
+        messages.forEach(function(message){
+            appendMessage(message);
+        })
+      })
+      .fail(function(){
+      alert('送信失敗');
+      })
+    }
+  },5000);
+
 });
